@@ -1,8 +1,18 @@
+{% load url from future %}
 <!DOCTYPE html>
 <html lang="es">
   <head></head>
   <body>
-    <form action="{% url voterreg:register_ajax %}" method="post">
+    {% if api_errors %}
+      <p>Errors:</p>
+      <ul>
+        {% for error in api_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <form action="{% url 'voterreg:register' %}" method="post">
+      {% csrf_token %}
       {{ form.as_p }}
       <input type="submit" value="Submit" />
     </form>
