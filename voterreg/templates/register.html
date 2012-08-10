@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head></head>
+  <body>
+    <form action="{% url voterreg:register_ajax %}" method="post">
+      {{ form.as_p }}
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
+
